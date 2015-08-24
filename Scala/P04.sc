@@ -9,11 +9,15 @@
  */
 
 object P04 {
-  def length(l: List[Int]): Int = l match {
+  def length(xs: List[Int]): Int = xs match {
     case Nil => 0
-    case _ => 1 + length(l.tail)
-  }
-  length(List(1, 1, 2, 3, 5, 8))
-  length(List(1))
-  length(List())
+    case _ => 1 + length(xs.tail)
+  }                                               //> length: (xs: List[Int])Int
+
+  def test() = {
+    length(List(1, 1, 2, 3, 5, 8))
+  }                                               //> test: ()Int
+
+  test()                                          //> res0: Int = 6
+
 }

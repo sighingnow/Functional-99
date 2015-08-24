@@ -10,14 +10,19 @@
  *    res0: List[Symbol] = List('a, 'b, 'c, 'a, 'd, 'e)
  */
 object P08 {
-  def compress(l: List[Symbol]): List[Symbol] = l match {
+  def compress(xs: List[Symbol]): List[Symbol] = xs match {
     case Nil => Nil
     case fst :: Nil => List(fst)
     case fst :: snd :: rest => {
       if(fst == snd) compress(snd :: rest)
       else fst :: compress(snd :: rest)
     }
-  }
-  compress(Nil)
-  compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+  }                                               //> compress: (xs: List[Symbol])List[Symbol]
+
+  def test() = {
+    compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+  }                                               //> test: ()List[Symbol]
+
+  test()                                          //> res0: List[Symbol] = List('a, 'b, 'c, 'a, 'd, 'e)
+
 }

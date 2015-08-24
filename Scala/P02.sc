@@ -9,13 +9,16 @@
  */
 
 object P02 {
-  def penultimate(l: List[Int]): Int = l match {
+  def penultimate(xs: List[Int]): Int = xs match {
     case f :: p :: Nil => f
     case f :: p :: rest => penultimate(p :: rest)
     case _ => throw new NoSuchElementException("no last but one element.")
-  }
+  }                                               //> penultimate: (xs: List[Int])Int
 
-  penultimate(List(1, 1, 2, 3, 5, 8))
-  penultimate(List(1))
-  penultimate(List())
+  def test() = {
+    penultimate(List(1, 1, 2, 3, 5, 8))
+  }                                               //> test: ()Int
+
+  test()                                          //> res0: Int = 5
+
 }

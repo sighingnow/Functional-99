@@ -14,7 +14,6 @@
     [(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')]
  --}
 
-
 pack :: Eq a => [a] -> [[a]]
 pack [] = []
 pack (x:xs) = (x : takeWhile (== x) xs) : pack (dropWhile (==x) xs)

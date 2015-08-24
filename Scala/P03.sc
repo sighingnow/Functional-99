@@ -10,9 +10,12 @@
  */
 
 object P03 {
-  def nth(idx: Int, l: List[Int]): Int = l(idx)
+  def nth(idx: Int, xs: List[Int]): Int = xs(idx) //> nth: (idx: Int, xs: List[Int])Int
 
-  nth(2, List(1, 1, 2, 3, 5, 8))
-  nth(0, List(1))
-  nth(0, List())
+  def test() = {
+    nth(2, List(1, 1, 2, 3, 5, 8))
+  }                                               //> test: ()Int
+
+  test()                                          //> res0: Int = 2
+
 }

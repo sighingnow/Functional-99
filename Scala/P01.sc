@@ -9,13 +9,16 @@
  */
 
 object P01 {
-  def last(l: List[Int]): Int = l match {
+  def last(xs: List[Int]): Int = xs match {
     case Nil => throw new NoSuchElementException("no last element.")
     case head :: Nil => head
     case head :: rest => last(rest)
-  }
+  }                                               //> last: (xs: List[Int])Int
 
-  last(List(1, 1, 2, 3, 5, 8))
-  last(List())
+  def test() = {
+    last(List(1, 1, 2, 3, 5, 8))
+  }                                               //> test: ()Int
+
+  test()                                          //> res0: Int = 8
+
 }
-

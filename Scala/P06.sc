@@ -9,14 +9,16 @@
  */
 
 object P06 {
-  def isPalindrome(l: List[Int]): Boolean = l match {
+  def isPalindrome(xs: List[Int]): Boolean = xs match {
     case Nil => true
     case a :: Nil => true
-    case _ => l.head == l.last && isPalindrome(l.drop(1).dropRight(1))
-  }
-  isPalindrome(List(1, 1, 2, 3, 5, 8))
-  isPalindrome(List(1, 2, 3, 2, 1))
-  isPalindrome(List(1, 2, 2, 1))
-  isPalindrome(List(1))
-  isPalindrome(List())
+    case _ => xs.head == xs.last && isPalindrome(xs.drop(1).dropRight(1))
+  }                                               //> isPalindrome: (xs: List[Int])Boolean
+
+  def test() = {
+    isPalindrome(List(1, 2, 3, 2, 1))
+  }                                               //> test: ()Boolean
+
+  test()                                          //> res0: Boolean = true
+
 }

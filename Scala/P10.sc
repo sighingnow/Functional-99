@@ -11,7 +11,7 @@
  *    res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
  */
 object P10 {
-  def encode(l: List[Symbol]): List[(Int, Symbol)] = l match {
+  def encode(xs: List[Symbol]): List[(Int, Symbol)] = xs match {
     case Nil => Nil
     case fst :: Nil => List((1, fst))
     case fst :: snd :: rest => {
@@ -19,6 +19,13 @@ object P10 {
       if(fst == snd) (r.head._1 + 1, fst) :: r.tail
       else (1, fst) :: r
     }
-  }
-  encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+  }                                               //> encode: (xs: List[Symbol])List[(Int, Symbol)]
+  
+  def test() = {
+    encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+  }                                               //> test: ()List[(Int, Symbol)]
+
+  test()                                          //> res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,
+                                                  //| 'e))
+
 }

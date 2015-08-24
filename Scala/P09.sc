@@ -9,7 +9,7 @@
  *    res0: List[List[Symbol]] = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
  */
 object P09 {
-  def pack(l: List[Symbol]): List[List[Symbol]] = l match {
+  def pack(xs: List[Symbol]): List[List[Symbol]] = xs match {
     case Nil => Nil
     case fst :: Nil => List(List(fst))
     case fst :: snd :: rest => {
@@ -17,6 +17,13 @@ object P09 {
       if(fst == snd) (fst :: r.head) :: r.tail
       else List(fst) :: r
     }
-  }
-  pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+  }                                               //> pack: (xs: List[Symbol])List[List[Symbol]]
+  
+  def test() = {
+    pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+  }                                               //> test: ()List[List[Symbol]]
+
+  test()                                          //> res0: List[List[Symbol]] = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c)
+                                                  //| , List('a, 'a), List('d), List('e, 'e, 'e, 'e))
+
 }
